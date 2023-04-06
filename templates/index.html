@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+        }
+        .box {
+            margin: 10px;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: {{colr}};
+        }
+        .row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Welcome!</h1>
+        <div class="container">
+            {% for y in range(rows - 1): %}
+                <div class="row">
+                    {% for x in range(4): %}
+                        <div class="box"></div>
+                        {% set times = times - 1 %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="row">
+                {% for x in range(times % 4): %}
+                    <div class="box"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
